@@ -55,6 +55,8 @@ export function register(config) {
 }
 
 function registerValidSW(swUrl, config) {
+  const {injectManifest} = require('workbox-build');
+  console.log(injectManifest);
   navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
