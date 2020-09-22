@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "hasha": "^5.2.0",
     "ncp": "^2.0.0",
     "react": "^16.13.1",
     "react-app-rewire-workbox": "^2.0.1",
