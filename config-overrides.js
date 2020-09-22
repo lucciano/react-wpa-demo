@@ -8,7 +8,7 @@ module.exports = function override(config, env)
     config.plugins.forEach((plugin) =>
     {
         if (env === "production" && plugin.constructor.name === 'GenerateSW') {
-            plugin.config.importScripts.push('precache.js');
+            plugin.config.importScripts.push('nose.js');
         }
     })
     return config;
