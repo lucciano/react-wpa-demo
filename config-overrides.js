@@ -1,10 +1,14 @@
+const { rewireWorkboxInject, defaultInjectConfig } = require('react-app-rewire-workbox');
+const path = require('path');
 
-module.exports = function override(config, env) {
-    // console.log(config.plugins, env);
-    config.plugins.forEach((plugin, index) => {
-        if (constructor.name === 'GenerateSW')
-        {
-            console.log(index, plugin.constructor.name);
+
+
+module.exports = function override(config, env)
+{
+    config.plugins.forEach((plugin) =>
+    {
+        if (env === "production" && plugin.constructor.name === 'GenerateSW') {
+            plugin.config.importScripts.push('precache.js');
         }
     })
     return config;

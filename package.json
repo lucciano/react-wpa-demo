@@ -15,9 +15,9 @@
     "workbox-webpack-plugin": "^5.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-scripts test",
+    "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "build:custom": "node scripts/webpack"
   },
