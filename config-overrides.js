@@ -36,11 +36,12 @@ module.exports = function override(config, env)
         if (env === "production" && plugin.constructor.name === 'GenerateSW') {
 
             const publicDirectoryPath = path.join(__dirname, 'public');
-            const buildDirectoryPath = path.join(__dirname, 'build');
 
-            const precache = getAllFiles(publicDirectoryPath).map(file => 
+            const exclude = ['index.html', 'manifest.json', 'robots.txt', 'favicon.ico'];
+            const precache = getAllFiles(publicDirectoryPath).filter(file => !(exclude.includes(path.relative(publicDirectoryPath, file)))).map(file => 
             {
-                const url = '/' + path.relative(publicDirectoryPath, file).replace(/\\/g, '/');
+                // console.log(path.relative(publicDirectoryPath, file), !(exclude.includes(path.relative(publicDirectoryPath, file))));
+                const url = '/' + path.relative(publicDirectoryPath, file).replace(/\\/g, '/'); 
                 const revision = sha1FromFile(file);
                 return {url, revision};
             });
